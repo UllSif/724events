@@ -18,7 +18,7 @@ ServiceCard.propTypes = {
 };
 
 ServiceCard.defaultProps = {
-  imageAlt: "image"
-}
+  imageAlt: "image",
+};
 
 export default ServiceCard;
