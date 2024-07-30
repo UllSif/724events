@@ -15,14 +15,9 @@ import { useData } from "../../contexts/DataContext";
 const Page = () => {
   const {data} = useData();
 
-  const last = data && data.events && data.events.length > 0
-    ? data.events.reduce((latest, current) => {
-        const latestDate = new Date(latest.date);
-        const currentDate = new Date(current.date);
-
-        return currentDate > latestDate ? current : latest;
-      })
-      : null;
+  const last = data?.events.sort((evtA, evtB) =>
+      new Date(evtB.date) - new Date(evtA.date)
+  )[0];
 
   return <>
     <header>

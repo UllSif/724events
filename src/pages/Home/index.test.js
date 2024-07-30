@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import Home from "./index";
 
 describe("When Form is created", () => {
@@ -29,8 +29,11 @@ describe("When Form is created", () => {
 
 
 describe("When a page is created", () => {
-  it("a list of events is displayed", () => {
-    // to implement
+  it("a list of events is displayed", async () => {
+    render(<Home />)
+    waitFor(() => {
+      expect(screen.getByText("#DigitonPARIS")).toBeInTheDocument()
+    })
   })
   it("a list a people is displayed", async () => {
     render(<Home />);
@@ -41,6 +44,10 @@ describe("When a page is created", () => {
     await screen.findByText("contact@724events.com")
   })
   it("an event card, with the last event, is displayed", () => {
-    // to implement
+    render(< Home />)
+    waitFor(() => {
+      expect(screen.getByTestId("lastEvent")).toBeInTheDocument()
+      expect(screen.getByRole('date')).toBeInTheDocument()
+    })
   })
 });
