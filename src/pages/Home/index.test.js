@@ -43,7 +43,7 @@ describe("When a page is created", () => {
     render(<Home />);
     await screen.findByText("contact@724events.com")
   })
-  it("an event card, with the last event, is displayed", () => {
+  it("an event card, with the last event, is displayed", async () => {
     render(< Home />)
     waitFor(() => {
       expect(screen.getByTestId("lastEvent")).toBeInTheDocument()
