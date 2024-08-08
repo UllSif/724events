@@ -13,7 +13,7 @@ const Slider = () => {
 
   // Trie le tableau data par date en ordre décroissant.
   // sort fait une comparaison basée sur les dates
-  // -1 indique que si evtA est plus ancien que evtB, il doit être placé avant evtB
+  // -1 indique que si evtA est plus récent que evtB, il doit être placé avant evtB
 
   const nextCard = () => {
     setIndex((prevIndex) =>
